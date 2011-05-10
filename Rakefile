@@ -8,7 +8,7 @@ begin
     gem.summary = %Q{Interface with the music xray api}
     gem.description = %Q{wrapper for music xray api }
     gem.email = "jeff.durand@gmail.com"
-    gem.homepage = "http://github.com/johnnyiller/music_xray_api"
+    gem.homepage = "http://github.com/johnnyiller/Music-Xray-Api-Wrapper"
     gem.authors = ["jeff durand"]
     gem.add_dependency "xml-simple"
     #gem.add_development_dependency "thoughtbot-shoulda", ">= 0"
