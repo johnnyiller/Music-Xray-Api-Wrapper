@@ -1,0 +1,64 @@
+= amazon_ses
+
+Really simple gem that allows you to send email through amazon simple email
+service.
+
+<b>Installation</b>
+
+	gem install amazon_ses
+
+<b>Usage:</b>
+	
+	require 'rubygems'
+	require 'amazon_ses'
+
+	# all methods return a raw http response object
+	# to get the xml just call body on the return object from any of
+	# the following methods.
+	# Exceptions will be throw on any api call that doesn't result in
+	# a 200 OK response from amazon.
+	
+	 
+	# you must have a verified address with amazon to send mail
+	AmazonSES::Verify.address("youremail@gmail.com",amazon_secret,amazon_key)
+
+	# after verifying the address you can send mail
+
+	# simple send mail text only
+	AmazonSES::AmzMail.send(from,to,subject,body,secret,key)
+	# send html email
+	AmazonSES::AmzMail.send_html(from,to,subject,body,secret,key)
+	# if you produce your own email via the mail gem you can pass the result of calling to_s on the mail object
+	# to the following method
+	AmazonSES::AmzMail.send_raw(mail_string,amazon_secret,amazon_key)
+
+	# the following are two methods for getting stats
+
+	puts AmazonSES::Stats.send_quota(amazon_secret,amazon_key).body
+	puts AmazonSES::Stats.send_stats(amazon_secret,amazon_key).body
+
+	# the following is a helper object for looking at your stats
+
+	stobj = StatObject.new(amazon_secret,amazon_key)
+	puts stobj.sent_last_24_hours
+	puts stobj.reached_quota?
+
+
+Hope you enjoy the Gem.  If anyone wants to write a plugin for rails I would link definately link to it and find it useful.
+
+
+
+
+== Note on Patches/Pull Requests
+ 
+* Fork the project.
+* Make your feature addition or bug fix.
+* Add tests for it. This is important so I don't break it in a
+  future version unintentionally.
+* Commit, do not mess with rakefile, version, or history.
+  (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
+* Send me a pull request. Bonus points for topic branches.
+
+== Copyright
+
+Copyright (c) 2011 jeff durand. See LICENSE for details.
