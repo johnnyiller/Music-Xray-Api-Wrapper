@@ -8,9 +8,12 @@ require "digest/sha1"
 require "rubygems"
 require "mail"
 require "xmlsimple"
+require 'active_resource'
+
 
 $:.unshift(File.dirname(__FILE__))
 require 'music_xray_api/base'
-require 'music_xray_api/tracks'
-#require 'amazon_ses/stats'
-#require 'amazon_ses/amz_mail'
+require 'music_xray_api/track'
+require 'music_xray_api/track_set'
+require 'music_xray_api/track_set_member'
+

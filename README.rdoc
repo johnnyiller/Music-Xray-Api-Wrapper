@@ -1,47 +1,26 @@
-= amazon_ses
+= music_xray_api
 
 Really simple gem that allows you to send email through amazon simple email
 service.
 
 <b>Installation</b>
 
-	gem install amazon_ses
+	gem install music_xray_api
 
 <b>Usage:</b>
 	
 	require 'rubygems'
-	require 'amazon_ses'
+	require 'music_xray_api'
 
 	# all methods return a raw http response object
-	# to get the xml just call body on the return object from any of
-	# the following methods.
-	# Exceptions will be throw on any api call that doesn't result in
-	# a 200 OK response from amazon.
+	# to get the return bundle just call body...
+	# at some point we may have methods for making things a bit prettier
+	# Please try not to abuse the api.  We take steps to make it scale, however you should limit your rate to
+	# about 10 requests/second.  Anything more than this may be seen as excessive and you may be banned.
 	
-	 
-	# you must have a verified address with amazon to send mail
-	AmazonSES::Verify.address("youremail@gmail.com",amazon_secret,amazon_key)
-
-	# after verifying the address you can send mail
-
-	# simple send mail text only
-	AmazonSES::AmzMail.send(from,to,subject,body,secret,key)
-	# send html email
-	AmazonSES::AmzMail.send_html(from,to,subject,body,secret,key)
-	# if you produce your own email via the mail gem you can pass the result of calling to_s on the mail object
-	# to the following method
-	AmazonSES::AmzMail.send_raw(mail_string,amazon_secret,amazon_key)
-
-	# the following are two methods for getting stats
-
-	puts AmazonSES::Stats.send_quota(amazon_secret,amazon_key).body
-	puts AmazonSES::Stats.send_stats(amazon_secret,amazon_key).body
-
-	# the following is a helper object for looking at your stats
-
-	stobj = StatObject.new(amazon_secret,amazon_key)
-	puts stobj.sent_last_24_hours
-	puts stobj.reached_quota?
+	Please click into the various classes for more detailed documentation and usage example.
+	
+	
 
 
 Hope you enjoy the Gem.  If anyone wants to write a plugin for rails I would link definately link to it and find it useful.
