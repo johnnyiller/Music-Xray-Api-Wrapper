@@ -17,6 +17,8 @@ class Hash
   end
 end
 
+  
+
 module MusicXrayApi
   
   class Base
@@ -74,6 +76,20 @@ module MusicXrayApi
         nar["#{outer}[#{key}]"]=value
       end
       return nar
+    end
+  end
+end
+
+module ResourceMethods
+  def self.included(klass)
+    klass.extend ClassMethods
+  end
+  module ClassMethods
+    def set_headers
+      self.site = 'https://api.musicxray.com'
+      date = MusicXrayApi::Base.rfc2616(Time.now)
+      headers['Date'] = date.to_s
+      headers['X-Xray-Authorization'] = MusicXrayApi::Base.sign_https_requestv3(date)
     end
   end
 end

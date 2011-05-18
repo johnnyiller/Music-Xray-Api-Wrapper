@@ -16,4 +16,5 @@ require 'music_xray_api/base'
 require 'music_xray_api/track'
 require 'music_xray_api/track_set'
 require 'music_xray_api/track_set_member'
+require 'music_xray_api/track_match_request'
 
