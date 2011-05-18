@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{music_xray_api}
-  s.version = "0.0.1"
+  s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["jeff durand"]
-  s.date = %q{2011-05-10}
+  s.date = %q{2011-05-18}
   s.description = %q{wrapper for music xray api }
   s.email = %q{jeff.durand@gmail.com}
   s.extra_rdoc_files = [
@@ -24,7 +24,11 @@ Gem::Specification.new do |s|
     "VERSION",
     "lib/music_xray_api.rb",
     "lib/music_xray_api/base.rb",
-    "lib/music_xray_api/tracks.rb",
+    "lib/music_xray_api/track.rb",
+    "lib/music_xray_api/track_match_request.rb",
+    "lib/music_xray_api/track_set.rb",
+    "lib/music_xray_api/track_set_member.rb",
+    "music_xray_api.gemspec",
     "test/helper.rb",
     "test/test_music_xray_api.rb"
   ]
