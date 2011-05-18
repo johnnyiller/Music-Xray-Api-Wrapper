@@ -6,8 +6,8 @@ require "base64"
 require "openssl"
 require "digest/sha1"
 require "rubygems"
-require "mail"
-require "xmlsimple"
+#require "mail"
+#require "xmlsimple"
 require 'active_resource'
 
 
