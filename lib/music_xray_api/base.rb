@@ -34,6 +34,7 @@ module ResourceMethods
   module ClassMethods
     def set_headers
       self.site = MusicXrayApi::Base.api_endpoint
+      self.format = :xml
       date = MusicXrayApi::Base.rfc2616(Time.now)
       headers['Date'] = date.to_s
       headers['X-Xray-Authorization'] = MusicXrayApi::Base.sign_https_requestv3(date)
