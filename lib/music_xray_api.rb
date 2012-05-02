@@ -8,7 +8,11 @@ require "digest/sha1"
 require "rubygems"
 #require "mail"
 #require "xmlsimple"
-require 'active_resource'
+#gem 'activesupport', '2.3.5'
+#gem 'activeresource', '2.3.5'
+#require 'activesupport'
+require 'activeresource'
+
 
 
 $:.unshift(File.dirname(__FILE__))
