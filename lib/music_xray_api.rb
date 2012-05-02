@@ -11,11 +11,11 @@ require "rubygems"
 #gem 'activesupport', '2.3.5'
 #gem 'activeresource', '2.3.5'
 #require 'activesupport'
-begin
-  require 'activeresource'
-rescue
-  require 'active_resource'
-end
+#begin
+#  require 'activeresource'
+#rescue
+#  require 'active_resource'
+#end
 
 
 $:.unshift(File.dirname(__FILE__))
