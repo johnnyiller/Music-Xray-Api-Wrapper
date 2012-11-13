@@ -14,15 +14,24 @@ class TestMusicXrayApi < Test::Unit::TestCase
       MusicXrayApi::TrackMatchRequest.set_headers
       
     end
-    should "Find some cached tracks" do 
-      params = {:application_name=>"present",:application_id=>"246458"}
-      puts MusicXrayApi::Track.find(:all,:params=>params).first.inspect
+    #should "Find some cached tracks" do 
+    #  params = {:application_name=>"present",:application_id=>"246458"}
+    #  puts MusicXrayApi::Track.find(:all,:params=>params).first.inspect
+    #end
+    should "be able to match a song" do
+      t = MusicXrayApi::Track.find(521567)
+      puts t.inspect
+      params = {:track_id=>t.id,
+                :track_set_id=>"drop_boxes",
+                :result_delivery_method=>'none'}
+      #tmr = MusicXrayApi::TrackMatchRequest.create(params)
+      
+      # tmr.inspect 
     end
-        # 
-        # should "Be able to create a track." do
-        #   tr = MusicXrayApi::Track.create({:mp3_url=>"http://www.google.com", :uri=>"xray/#{Time.now.to_i.to_s}"})
-        #   puts tr.id
-        # end
+    #should "Be able to create a track." do
+      #tr = MusicXrayApi::Track.create({:mp3_url=>"http://development.musicxray.com/testsong.mp3", :uri=>"xray/#{Time.now.to_i.to_s}"})
+    #  puts tr.id
+    #end
         # should "be able to do crud for track sets" do 
         #   ts = MusicXrayApi::TrackSet.new
         #   ts.name = "another my new one"
